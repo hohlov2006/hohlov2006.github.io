@@ -1,0 +1,28 @@
+# Blueprint для Render.com (бесплатный тариф). Подробности — в README.md
+services:
+  - type: web
+    name: mneskuchno
+    runtime: node
+    plan: free
+    buildCommand: echo "зависимостей нет"
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.22.0
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_LOGIN
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false        # Render спросит значение при создании
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: AUTO_SEED
+        value: "1"
+      - key: AI_API_KEY
+        sync: false        # необязательно: без ключа работает встроенный генератор
+      - key: AI_BASE_URL
+        value: https://api.deepseek.com
+      - key: AI_MODEL
+        value: deepseek-v4-flash

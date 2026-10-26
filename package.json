@@ -1,0 +1,16 @@
+{
+  "name": "mneskuchno",
+  "version": "1.0.0",
+  "description": "«Мне скучно» — сервис подбора занятий с ИИ, оценками, партнёрскими промокодами и панелью разработчика",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "license": "MIT",
+  "private": true
+}
