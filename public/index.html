@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мне скучно — найдём, чем заняться</title>
+  <meta name="description" content="Нажми «Мне скучно» — и сервис с ИИ предложит занятие под твоё настроение, время суток и интересы.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@500;800&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#boredBtn">К главной кнопке</a>
+
+  <header class="top">
+    <a class="logo" href="./">мне скучно</a>
+    <a class="dev-link" href="admin.html">Для разработчика</a>
+  </header>
+
+  <main>
+    <section class="stage" aria-live="polite">
+      <p class="lead" id="lead">Нажми — и мы придумаем, чем заняться.</p>
+      <button id="boredBtn" class="bored" type="button"><span id="boredLabel">Мне скучно</span></button>
+      <p class="error" id="errorBox" role="alert" hidden></p>
+      <div id="resultHost"></div>
+    </section>
+
+    <aside id="geoBanner" class="geo-banner" hidden>
+      <p><strong>Разрешить геолокацию?</strong> Если рядом есть партнёр сервиса, например спортзал, мы покажем промокод со скидкой. Координаты округляем до ~100 м.</p>
+      <div class="row">
+        <button type="button" class="btn primary" id="geoAllow">Разрешить</button>
+        <button type="button" class="btn" id="geoLater">Не сейчас</button>
+      </div>
+    </aside>
+
+    <section class="tune">
+      <details id="tune">
+        <summary>Настроить подборку <span id="tuneCount" class="count"></span></summary>
+        <div class="tune-body">
+          <fieldset>
+            <legend>Что тебе нравится</legend>
+            <div id="chips" class="chips"></div>
+          </fieldset>
+          <div class="segs">
+            <fieldset>
+              <legend>Компания</legend>
+              <div class="seg" id="segCompany"></div>
+            </fieldset>
+            <fieldset>
+              <legend>Бюджет</legend>
+              <div class="seg" id="segBudget"></div>
+            </fieldset>
+            <fieldset>
+              <legend>Настроение</legend>
+              <div class="seg" id="segEnergy"></div>
+            </fieldset>
+          </div>
+          <fieldset class="geo-opts">
+            <legend>Геолокация и скидки партнёров</legend>
+            <label class="check"><input type="checkbox" id="geoToggle"> Учитывать, где я нахожусь</label>
+            <label class="check"><input type="checkbox" id="demoGeo"> Демо: представить, что я рядом с партнёром</label>
+            <p class="hint">Если ты часто бываешь у спортзала или кофейни-партнёра, мы покажем промокод. Координаты округляются до ~100 м.</p>
+          </fieldset>
+        </div>
+      </details>
+    </section>
+
+    <section class="history" id="historyBox" hidden>
+      <h2>Твои последние идеи</h2>
+      <ul id="historyList"></ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p id="modeNote">Подключаемся…</p>
+  </footer>
+
+  <script src="js/core.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
